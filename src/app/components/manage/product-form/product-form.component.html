@@ -51,13 +51,19 @@
                     <input matInput type="text" formControlName="discount">
                 </mat-form-field>
 
-                <div class="w-full flex flex-col" formArrayName="images">
-                    <div class="flex justify-between">
-                        <h4>Images</h4>
-                        <button mat-raised-button color="primary" (click)="addImage()">Add Image</button>
-                        <button mat-raised-button color="primary" (click)="removeImage()">Remove Image</button>
-                    </div>
+                <div class="w-full flex gap-8">
+                    <mat-checkbox class="" formControlName = "isFeatured">Is Featured</mat-checkbox>
+                    <mat-checkbox class="" formControlName = "isNewProduct">Is New</mat-checkbox>
+                </div>
 
+                <div class="w-full flex flex-col" formArrayName="images">
+                    <div class="flex justify-between mb-4">
+                        <h4>Images</h4>
+                        <div class="flex justify-between">
+                            <button mat-raised-button color="primary mr-4" (click)="addImage()">Add Image</button>
+                            <button mat-raised-button color="primary" (click)="removeImage()">Remove Image</button>
+                        </div>
+                    </div>
                     @for (item of images.controls; track $index) {
                     <mat-form-field class="w-full">
                         <mat-label>Image {{$index+1}}</mat-label>
@@ -71,10 +77,11 @@
             </div>
             <div class="w-full flex justify-center">
                 @if(id) {
-                <button mat-raised-button [disabled]="productForm.invalid" color="primary" (click)="add()">Update</button>
+                <button mat-raised-button [disabled]="productForm.invalid" color="primary"
+                    (click)="update()">Update</button>
                 }
                 @else {
-                <button mat-raised-button [disabled]="!productForm.invalid" color="primary">Add</button>
+                <button mat-raised-button [disabled]="productForm.invalid" color="primary" (click)="add()">Add</button>
                 }
 
             </div>

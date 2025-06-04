@@ -24,7 +24,7 @@ import { ProductService } from '../../../services/product.service';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
-displayedColumns: string[] = ['id','name','description','shortDescription','price','discount' ,'action'];
+displayedColumns: string[] = ['id','name','shortDescription','price','discount' ,'action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -10,7 +10,7 @@ import { Brand } from '../../../types/brand';
 import { Category } from '../../../types/category';
 import { CategoryService } from '../../../services/category.service';
 import { BrandService } from '../../../services/brand.service';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @Component({
@@ -21,7 +21,8 @@ import { BrandService } from '../../../services/brand.service';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCheckboxModule
   ],
   templateUrl: './product-form.component.html',
   styleUrl: './product-form.component.scss'
@@ -32,12 +33,14 @@ export class ProductFormComponent {
   productForm = this.formBuilder.group({
     name: [null, [Validators.required, Validators.minLength(5)]],
     shortDescription: [null, [Validators.required, Validators.minLength(10)]],
-    description: [null, [Validators.required, Validators.minLength(50)]],
+    description: [null, [Validators.required, Validators.minLength(30)]],
     price: [null, [Validators.required]],
     discount: [],
     images: this.formBuilder.array([]),
     categoryId: [null, [Validators.required]],
     brandId: [null, [Validators.required]],
+    isFeatured : [false],
+    isNewProduct : [false]
   });
 
   categoryService = inject(CategoryService);
@@ -53,7 +56,7 @@ export class ProductFormComponent {
 
   ngOnInit() {
 
-    this.addImage();
+    // this.addImage();
 
     this.id = this.route.snapshot.params["id"];
     console.log(this.id)
@@ -91,13 +94,13 @@ export class ProductFormComponent {
     })
   }
 
-  // update() {
-  //   console.log(this.name);
-  //   this.productService.updateProduct(this.id, this.name).subscribe((result: any) => {
-  //     alert("Product updated");
-  //     this.router.navigateByUrl("/admin/products");
-  //   })
-  // }
+  update() {
+    let value = this.productForm.value;
+    this.productService.updateProduct(this.id, value as any).subscribe((result) => {
+      alert("Product updated");
+      this.router.navigateByUrl("/admin/products");
+    })
+  }
 
   addImage() {
     this.images.push(this.formBuilder.control(null))

@@ -6,5 +6,7 @@ export interface Product {
     price: Number,
     discount: Number,
     images: string[],
-    categoryId: string
+    categoryId: string,
+    isFeatured: boolean,
+    isNewProducts :boolean
 }
