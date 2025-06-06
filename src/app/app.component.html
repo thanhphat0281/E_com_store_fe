@@ -1,7 +1,21 @@
 <div class="flex flex-col pr-[240px] pl-[240px]">
+    <!-- @if(!authService.isAdmin) {
     <app-header></app-header>
+    }
     <div class="min-h-screen">
         <router-outlet></router-outlet>
     </div>
+    @if(!authService.isAdmin) {
     <app-footer></app-footer>
+    } -->
+
+    <app-header></app-header>
+
+    <div class="min-h-screen">
+        <router-outlet></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
+
+
 </div>

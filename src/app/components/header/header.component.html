@@ -1,195 +1,157 @@
-<div class="bg-gradient-to-r from-[#0D57C6] via-[#37CFFF] to-[#0D57C6]">
-  <div class="nav_top ">
-    <div class=" flex justify-between">
-      <div class="flex items-center pt-1 pb-1 font-primary ">
-        <img src="./../../../assets/icon/Sale.png" alt="" class="w-4 h-4">
-        <h6 class="text-[#f3f2f2]">Nhập mã </h6>
-        <h6 class="text-yellow-400 font-bold pr-1 pl-1"> NEWBIE </h6>
-        <h6 class="text-[#f3f2f2]"> giảm ngay 10% cho lần đầu mua hàng</h6>
-      </div>
-      <div class="frame_2 flex  w-[350px] ">
-        <div class=" flex items-center w-[250px]">
-          <img src="../../../assets/icon/Phone Rounded.png" alt="" class="w-4 h-4">
-          <h6 class="text-[#f3f2f2]">Hoteline:</h6>
-          <h6 class="text-yellow-400 font-bold pr-1 pl-1"> 0283 760 7607</h6>
+<div class="">
+
+  <div class="bg-gradient-to-r from-[#0D57C6] via-[#37CFFF] to-[#0D57C6]">
+    <div class="nav_top ">
+      <div class=" flex justify-between">
+        <div class="flex items-center pt-1 pb-1 font-primary ">
+          <img src="./../../../assets/icon/Sale.png" alt="" class="w-4 h-4">
+          <h6 class="text-[#f3f2f2]">Nhập mã </h6>
+          <h6 class="text-yellow-400 font-bold pr-1 pl-1"> NEWBIE </h6>
+          <h6 class="text-[#f3f2f2]"> giảm ngay 10% cho lần đầu mua hàng</h6>
         </div>
-        <div class="flex items-center w-36">
-          <img src="../../../assets/icon/Smartphone.png" alt="" class="w-4 h-4">
-          <h6 class="text-[#f3f2f2]">Tải ứng dụng</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="nav_mid ">
-  <header class="flex items-center justify-between py-4 shadow bg-white">
-    <!-- Logo -->
-    <div class="flex-shrink-0 w-62 h-28">
-      <img src="../../../assets/img/logo_sunfil1.png" alt="Logo">
-    </div>
-    <!-- Search bar -->
-    <div class="flex flex-1 mx-6 p-[8px_8px_8px_20px]">
-      <div class="flex items-center border-2 border-blue-500 rounded-full px-4 py-2 w-full max-w-2xl">
-        <input type="text" placeholder="Tìm sản phẩm" (keyup.enter)="onSearch($event)"
-          class="flex-1 outline-none border-none bg-transparent text-gray-700 placeholder-gray-400" />
-        <button class="mx-2 text-gray-600 px-4 hover:text-black">
-          <!-- Icon camera -->
-          <img src="../../../assets/icon/Camera.png" alt="" class="w-7 h-7">
-        </button>
-        <button class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 p-[12px_24px]">
-          <!-- Icon search -->
-          <img src="../../../assets/icon/Magnifer.png" alt="" class="w-7 h-7">
-        </button>
-      </div>
-    </div>
-
-    <!-- Icons section -->
-    <div class="flex items-center gap-6">
-      <!-- Language -->
-      <div class="flex items-center gap-1 text-sm">
-        <img src="../../../assets/icon/ico-country-c-vietnam.png" alt="VN" class="h-4 w-4 rounded-full w-7 h-7"> VI
-      </div>
-
-      <!-- Cart -->
-      <div class="relative flex items-center text-sm cursor-pointer">
-
-        <img src="../../../assets/icon/Cart.png" alt="" class="w-7 h-7">
-        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">12</span>
-        <span class="ml-1 hidden md:inline">Giỏ hàng</span>
-      </div>
-
-      <!-- Account -->
-      <div class="flex items-center text-sm cursor-pointer">
-        <img src="../../../assets/icon/User Circle.png" alt="" class="w-7 h-7">
-        <span class="ml-1 hidden md:inline">Tài khoản</span>
-      </div>
-    </div>
-  </header>
-</div>
-<div class="flex items-center justify-between bg-white px-4 py-4 shadow-sm">
-  <div class="flex items-center space-x-4">
-    <div class=" group inline-block">
-      <button
-        class="flex items-center bg-[#0155C6]  text-white px-4 py-2 cursor-pointer rounded-md text-sm font-semibold"
-        (mouseenter)="openMenu()" (mouseleave)="closeMenu()">
-        <!-- Menu icon -->
-        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd"
-            d="M3 5h14a1 1 0 010 2H3a1 1 0 110-2zm0 4h14a1 1 0 010 2H3a1 1 0 110-2zm0 4h14a1 1 0 010 2H3a1 1 0 110-2z"
-            clip-rule="evenodd" />
-        </svg>
-        Danh Mục Sản Phẩm
-        <!-- Dropdown icon -->
-        <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M19 9l-7 7-7-7" />
-        </svg>
-
-        <div *ngIf="isMenuOpen"
-          class="absolute left-[240px] w-[1400px] top-[218px] bg-[#F4F6F8] mt-2 border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-          (mouseenter)="openMenu()" (mouseleave)="closeMenu()">
-          <!-- Sidebar -->
-          <div class="flex gap-4 ">
-            <div class="w-1/5 bg-[#FFFFFF]">
-              @for (category of listCategories; track $index) {
-              <div class=" cursor-pointer"
-                (mouseenter)="hoveredCategory = category"
-                class=" flex items-center justify-between gap-4 py-4 pl-4 hover:bg-[#F4F6F8] ">
-                <!-- <div class="w-2/9 ">
-                  <img src={{category.name}} alt="" class="w-10 h-10">
-                </div> -->
-                <div class="w-6/9 flex items-left" (click)="searchCategory(category._id!)">
-                  <span class="text-[#1C252E] ">{{ category.name }}</span>
-                </div>
-                <!-- <div class="w-1/9">
-                  <img src={{categoryItem.icon}} alt="" class="w-3 h-3">
-                </div> -->
-
-              </div>
-              }
-
-            </div>
-
-            <!-- Subcategories -->
-            <!-- <div *ngIf="hoveredCategory" class=" w-4/5 my-4 mr-4">
-              <div class="grid grid-cols-3 gap-4 ">
-                <div *ngFor="let sub of hoveredCategory.subcategories"
-                  class="flex items-center gap-2 hover:bg-[#F4F6F8] bg-[#FFFFFF] p-4 cursor-pointer rounded">
-                  <img src={{sub.imgSub}} class="w-15 h-15" />
-                  <span class="text-[#1C252E] ">{{ sub.nameSub }}</span>
-                </div>
-              </div>
-              <div>
-                <div class="flex text-[#1C252E] my-4 justify-between">
-                  <h4 class=" text-2xl font-bold">Sản Phẩm Bán Chạy</h4>
-                  <div class="flex">
-                    <h4 class="mr-3 p-2 text-[#0373F3]">Xem tất cả </h4>
-                    <img src="../assets/icon/Vector (Stroke).svg" alt="">
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-5 gap-6">
-                  <div *ngFor="let product of products.slice(0, 5)"
-                    class="bg-white rounded-xl p-4 w-[200px] text-left mr-2 flex-shrink-0">
-                    <img [src]="product.image" alt="Product" class="mx-auto mb-2 w-[200px] h-[200px] object-contain" />
-
-                    <p class="text-sm font-medium text-gray-800 line-clamp-2">
-                      {{ product.name }}
-                    </p>
-                    <p class=" text-red-600 font-bold mt-2 text-xl">
-                      {{ product.price }} đ
-                    </p>
-                    <div class="flex text-gray-400 text-sm">
-                      <p class=" line-through text-sm">
-                        {{ product.oldPrice }} đ
-                      </p>
-                      <span class="text-[#B71D18] ml-1">-{{ product.discount }}%</span>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div> -->
+        <div class="frame_2 flex  w-[350px] ">
+          <div class=" flex items-center w-[250px]">
+            <img src="../../../assets/icon/Phone Rounded.png" alt="" class="w-4 h-4">
+            <h6 class="text-[#f3f2f2]">Hoteline:</h6>
+            <h6 class="text-yellow-400 font-bold pr-1 pl-1"> 0283 760 7607</h6>
+          </div>
+          <div class="flex items-center w-36">
+            <img src="../../../assets/icon/Smartphone.png" alt="" class="w-4 h-4">
+            <h6 class="text-[#f3f2f2]">Tải ứng dụng</h6>
           </div>
         </div>
-
-
-      </button>
-    </div>
-
-    <!-- Menu items -->
-    <nav class="flex space-x-4 text-sm text-gray-800 font-medium">
-      <a href="#" class="hover:text-blue-600">Về Chúng Tôi</a>
-      <a href="#" class="hover:text-blue-600">Bài Viết</a>
-      <a href="#" class="hover:text-blue-600">Catalog</a>
-      <a href="#" class="hover:text-blue-600">Liên Hệ</a>
-    </nav>
-  </div>
-  <!-- Right: Các tính năng hỗ trợ -->
-  <div class="flex items-center space-x-6  text-sm text-gray-800">
-    <div class="flex items-center space-x-1">
-      <span class="text-blue-600">
-        <img src="../../../assets/icon/Vector.png" alt="">
-      </span>
-      <span>Hỗ trợ 24/7</span>
-    </div>
-    <div class="flex items-center space-x-1">
-      <span class="text-blue-600">
-        <img src="../../../assets/icon/Hand Money.png" alt="">
-      </span>
-      <span>Miễn Phí Vận Chuyển</span>
-    </div>
-    <div class="flex items-center space-x-1">
-      <span class="text-blue-600">
-        <img src="../../../assets/icon/truck_fill.png" alt="">
-      </span>
-      <span>Giao Hàng Nhanh 2h</span>
-    </div>
-    <div class="flex items-center space-x-1">
-      <span class="text-blue-600">
-        <img src="../../../assets/icon/Refresh Circle.png" alt="">
-      </span>
-      <span>30 Ngày Đổi Trả</span>
+      </div>
     </div>
   </div>
+
+  <div class="nav_mid ">
+    <header class="flex items-center justify-between py-4 shadow bg-white">
+      <!-- Logo -->
+      <div class="flex-shrink-0 w-62 h-28">
+        <a href="#"><img src="../../../assets/img/logo_sunfil1.png" alt="Logo"></a>
+
+      </div>
+      <!-- Search bar -->
+      <div class="flex flex-1 mx-6 p-[8px_8px_8px_20px]">
+        <div class="flex items-center border-2 border-blue-500 rounded-full px-4 py-2 w-full max-w-2xl">
+          <input type="text" placeholder="Tìm sản phẩm" (keyup.enter)="onSearch($event)" [(ngModel)] = "searchTerm"
+            class="flex-1 outline-none border-none bg-transparent text-gray-700 placeholder-gray-400" />
+          <button class="mx-2 text-gray-600 px-4 hover:text-black">
+            <!-- Icon camera -->
+            <img src="../../../assets/icon/Camera.png" alt="" class="w-7 h-7">
+          </button>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 p-[12px_24px]">
+            <!-- Icon search -->
+            <img src="../../../assets/icon/Magnifer.png" alt="" class="w-7 h-7">
+          </button>
+        </div>
+      </div>
+
+      <!-- Icons section -->
+      <div class="flex items-center gap-6">
+        <!-- Language -->
+        <div class="flex items-center gap-1 text-sm">
+          <img src="../../../assets/icon/ico-country-c-vietnam.png" alt="VN" class="h-4 w-4 rounded-full w-7 h-7"> VI
+        </div>
+
+        <!-- Cart -->
+        <div class="relative flex items-center text-sm cursor-pointer">
+          <img src="../../../assets/icon/Cart.png" alt="" class="w-7 h-7">
+          <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">12</span>
+          <span class="ml-1 hidden md:inline">Giỏ hàng</span>
+        </div>
+
+        <!-- Account -->
+        <div class="flex items-center text-sm cursor-pointer">
+          <img src="../../../assets/icon/User Circle.png" alt="" class="w-7 h-7">
+          @if(authService.isAdmin){
+          <a (click)="goToLDashboard()" class="text-red-500">{{authService.userName}}!</a>
+          } @else {
+          <a  (click)="goToLProfile()" class="text-red-500">{{authService.userName}}!</a>
+          }
+          @if(authService.isLoggedIn) {
+          <a href="#" class="cursor-pointer ml-2" (click)="logout()">Loggout</a>
+          } @else {
+          <a class="cursor-pointer ml-2" (click)="goToLogin()">Login</a>
+          }
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="flex items-center justify-between bg-white px-4 py-4 shadow-sm ">
+    <div class="flex items-center space-x-4">
+      <div class=" group inline-block">
+        <button
+          class="flex items-center bg-[#0155C6]  text-white px-4 py-2 cursor-pointer rounded-md text-sm font-semibold"
+          (mouseenter)="openMenu()" (mouseleave)="closeMenu()">
+          <!-- Menu icon -->
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M3 5h14a1 1 0 010 2H3a1 1 0 110-2zm0 4h14a1 1 0 010 2H3a1 1 0 110-2zm0 4h14a1 1 0 010 2H3a1 1 0 110-2z"
+              clip-rule="evenodd" />
+          </svg>
+          Danh Mục Sản Phẩm
+          <!-- Dropdown icon -->
+          <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+
+          <div *ngIf="isMenuOpen"
+            class="absolute z-1000 left-[240px] w-[1400px] top-[218px] bg-[#F4F6F8] mt-2 border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+            (mouseenter)="openMenu()" (mouseleave)="closeMenu()">
+            <!-- Sidebar -->
+            <div class="flex gap-4 ">
+              <div class="w-1/5 bg-[#FFFFFF]">
+                @for (category of listCategories; track $index) {
+                <div class=" cursor-pointer" (mouseenter)="hoveredCategory = category"
+                  class=" flex items-center justify-between gap-4 py-4 pl-4 hover:bg-[#F4F6F8] ">
+                  <div class="w-6/9 flex items-left" (click)="searchCategory(category._id!)">
+                    <span class="text-[#1C252E] ">{{ category.name }}</span>
+                  </div>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Menu items -->
+      <nav class="flex space-x-4 text-sm text-gray-800 font-medium">
+        <a href="#" class="hover:text-blue-600">Về Chúng Tôi</a>
+        <a href="#" class="hover:text-blue-600">Bài Viết</a>
+        <a href="#" class="hover:text-blue-600">Catalog</a>
+        <a href="#" class="hover:text-blue-600">Liên Hệ</a>
+      </nav>
+    </div>
+    <!-- Right: Các tính năng hỗ trợ -->
+    <div class="flex items-center space-x-6  text-sm text-gray-800">
+      <div class="flex items-center space-x-1">
+        <span class="text-blue-600">
+          <img src="../../../assets/icon/Vector.png" alt="">
+        </span>
+        <span>Hỗ trợ 24/7</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <span class="text-blue-600">
+          <img src="../../../assets/icon/Hand Money.png" alt="">
+        </span>
+        <span>Miễn Phí Vận Chuyển</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <span class="text-blue-600">
+          <img src="../../../assets/icon/truck_fill.png" alt="">
+        </span>
+        <span>Giao Hàng Nhanh 2h</span>
+      </div>
+      <div class="flex items-center space-x-1">
+        <span class="text-blue-600">
+          <img src="../../../assets/icon/Refresh Circle.png" alt="">
+        </span>
+        <span>30 Ngày Đổi Trả</span>
+      </div>
+    </div>
+  </div>
+
 </div>

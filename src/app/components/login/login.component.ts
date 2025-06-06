@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,18 +20,33 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-   hidePassword = true;
+  hidePassword = true;
   hideConfirmPassword = true;
 
   constructor() { }
-  formRegister = inject(FormBuilder);
+  formLogin = inject(FormBuilder);
   authService = inject(AuthService);
 
-  registerForm = this.formRegister.group({
+  router = inject(Router)
+
+  loginForm = this.formLogin.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
-login() {
-
-}
+  login() {
+    this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe((result: any) => {
+      console.log(result);
+      localStorage.setItem('token', result.token);
+      localStorage.setItem('user', JSON.stringify(result.user));
+      // if(result.user.isAdmin){
+      //   this.router.navigateByUrl("/admin");
+      // }else {
+      //    this.router.navigateByUrl("/");
+      // }
+     this.router.navigateByUrl("/");
+    })
+  }
+  goToRegister() {
+    this.router.navigateByUrl("/register");
+  }
 }

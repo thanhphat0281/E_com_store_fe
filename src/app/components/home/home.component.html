@@ -1,13 +1,15 @@
-<owl-carousel-o [options]="customOptions">
-    @for (product of bannerImages; track $index) {
-    <ng-template carouselSlide>
-        <div [routerLink]="'product/'+product._id">
-            <img [src]="product.images[0]" alt="images" title="Flash Sale">
-        </div>
+<div class="">
+    <owl-carousel-o [options]="customOptions">
+        @for (product of bannerImages; track $index) {
+        <ng-template carouselSlide>
+            <div [routerLink]="'product/'+product._id">
+                <img [src]="product.images[0]" alt="images" title="Flash Sale">
+            </div>
 
-    </ng-template>
-    }
-</owl-carousel-o>
+        </ng-template>
+        }
+    </owl-carousel-o>
+</div>
 <div>
     <h4 class="text-2xl font-bold">Featured Products</h4>
     <div class="flex flex-wrap gap-1">
