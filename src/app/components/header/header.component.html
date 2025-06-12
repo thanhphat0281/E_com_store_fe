@@ -36,11 +36,11 @@
         <div class="flex items-center border-2 border-blue-500 rounded-full px-4 py-2 w-full max-w-2xl">
           <input type="text" placeholder="Tìm sản phẩm" (keyup.enter)="onSearch($event)" [(ngModel)] = "searchTerm"
             class="flex-1 outline-none border-none bg-transparent text-gray-700 placeholder-gray-400" />
-          <button class="mx-2 text-gray-600 px-4 hover:text-black">
+          <button class="mx-2 text-gray-600 px-4 hover:text-black" >
             <!-- Icon camera -->
-            <img src="../../../assets/icon/Camera.png" alt="" class="w-7 h-7">
+            <img src="../../../assets/icon/Camera.png" alt="" class="w-7 h-7" >
           </button>
-          <button class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 p-[12px_24px]">
+          <button class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 p-[12px_24px]" (click)="onBtnSearch($event)" >
             <!-- Icon search -->
             <img src="../../../assets/icon/Magnifer.png" alt="" class="w-7 h-7">
           </button>

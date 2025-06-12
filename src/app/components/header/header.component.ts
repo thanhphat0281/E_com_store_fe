@@ -24,7 +24,7 @@ export class HeaderComponent {
 
   router = inject(Router);
   authService = inject(AuthService);
-  searchTerm!:string;
+  searchTerm!: string;
   ngOnInit() {
     this.getServerData();
   }
@@ -44,9 +44,13 @@ export class HeaderComponent {
   }
 
   onSearch(e: any) {
-    console.log(e.target.value);
     this.searchTerm = ""
     this.router.navigateByUrl("/products?search=" + e.target.value);
+  }
+
+  onBtnSearch(event?: Event) {
+    if (event) event.preventDefault();
+    this.router.navigateByUrl("/products?search=" + this.searchTerm);
   }
 
   searchCategory(id: any) {

@@ -1,19 +1,26 @@
-<div class="bg-white rounded-xl p-4 w-[252.8px] h-[495.8px] mr-2 flex-shrink-0" [routerLink]="'product/'+product._id">
+<div class="bg-white rounded-xl p-4 w-[252.8px] h-[495.8px] mr-2 flex-shrink-0" [routerLink]="'/product/'+product._id">
     <img [src]="product.images[0]" alt="Product" class="mx-auto mb-2 w-[252.8px] h-[252.8px] object-contain" />
     <div class="flex items-center bg-yellow-400 text-20 w-[124px] font-semibold px-2 py-1 rounded-full mb-2">
         <img src="../assets/icon/Left.png" alt="" class="mx-1.25 w-4 h-4">
-        <span class="text-[#7A0916] text-[14px]">Giá cực sốc</span>
+        <span class="text-[#7A0916] text-[14px]">Giảm {{ product.discount }}%</span>
     </div>
-    <p class="text-sm font-medium text-gray-800 line-clamp-2">
+    <p class="text-sm font-medium text-gray-800 h-12 line-clamp-2">
         {{ product.name }}
     </p>
-    <p class="text-red-600 font-bold mt-2">
-        {{ product.price }} đ
-    </p>
-    <p class="text-gray-400 text-sm line-through">
-        <!-- {{ item.price - item.price* item.discount }} đ -->
-        <span class="text-[#B71D18] ml-1">-{{ product.discount }}%</span>
-    </p>
+
+    <div class="flex gap-3 items-center my-2">
+        <p class="text-red-600 font-bold">
+            {{ sellingPrice | currency:'VND'}}
+        </p>
+        <!-- <p class="text-gray-400 text-sm line-through">
+            <span class="text-orange-300 font-bold ml-1">-{{ product.discount }}%</span>
+        </p> -->
+
+        <p class="text-gray-400 text-sm line-through">
+            <span class=" font-bold ml-1 text-sm">{{  product.price | currency:'VND' }}</span>
+        </p>
+    </div>
+
     <button class="mt-2 w-full bg-[#E6F1FF] text-[#025FCA] font-semibold py-2 rounded">
         Mua ngay
     </button>
